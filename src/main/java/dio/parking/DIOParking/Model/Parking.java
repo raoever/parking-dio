@@ -1,14 +1,18 @@
 package dio.parking.DIOParking.Model;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @Entity
-@Data
+@Setter
+@Getter
 public class Parking {
 
+    @Id
     private String id;
     private String placa;
     private String estado;
