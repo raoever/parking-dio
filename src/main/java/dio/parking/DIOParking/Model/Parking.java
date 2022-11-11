@@ -1,16 +1,13 @@
 package dio.parking.DIOParking.Model;
-
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.Entity;
 import java.time.LocalDateTime;
 
-@Document("parking")
+@Entity
 public class Parking {
 
-    @Id
+    @javax.persistence.Id
     private String id;
     private String placa;
     private String estado;
@@ -34,6 +31,9 @@ public class Parking {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
     public String getPlaca() {
         return placa;
     }

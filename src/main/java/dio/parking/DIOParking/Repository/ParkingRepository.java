@@ -1,8 +1,10 @@
 package dio.parking.DIOParking.Repository;
 
 import dio.parking.DIOParking.Model.Parking;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ParkingRepository extends MongoRepository<Parking, String> {
+@Repository
+public interface ParkingRepository extends JpaRepository<Parking, String> {
 }
 
