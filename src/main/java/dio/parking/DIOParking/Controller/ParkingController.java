@@ -17,7 +17,7 @@ import java.util.List;
 public class ParkingController {
 
     @Autowired
-    private ParkingService parkingService;
+    private final ParkingService parkingService;
 
     @Autowired
     private ParkingRepository parkingRepository;
@@ -54,10 +54,10 @@ public class ParkingController {
         return ResponseEntity.ok(parking);
     }
 
-//    @PostMapping("/{id}")
-//    public ResponseEntity<ParkingDTO> checkOut(@PathVariable String id) {
-//        Parking parking = parkingService.checkOut(id);
-//        return ResponseEntity.ok(parkingMapper.toParkingDTO(parking));
-//    }
+    @PostMapping("/{id}")
+    public ResponseEntity<Parking> checkOut(@PathVariable String id) {
+        Parking parking = parkingService.checkOut(id);
+        return ResponseEntity.ok(parking);
+    }
 }
 

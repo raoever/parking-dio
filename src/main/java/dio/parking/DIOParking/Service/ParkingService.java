@@ -50,13 +50,13 @@ public class ParkingService {
         return parking;
     }
 
-//    @Transactional
-//    public Parking checkOut(String id) {
-//        Parking parking = findById(id);
-//        parking.setExitDate(LocalDateTime.now());
-//        parking.setBill(ParkingCheckOut.getBill(parking));
-//        parkingRepository.save(parking);
-//        return parking;
-//    }
+    @Transactional
+    public Parking checkOut(String id) {
+        Parking parking = findById(id);
+        parking.setSaida(LocalDateTime.now());
+        parking.setConta(ParkingCheckOut.getBill(parking));
+        parkingRepository.save(parking);
+        return parking;
+    }
 
 }
