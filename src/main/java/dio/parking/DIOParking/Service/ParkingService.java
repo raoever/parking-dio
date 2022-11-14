@@ -22,6 +22,8 @@ public class ParkingService {
     public Parking addParking(Parking parking){
         parking.setId(UUID.randomUUID().toString().split("-")[0]);
         parking.setEntrada(LocalDateTime.now());
+        parking.setSaida(null);
+        parking.setConta(null);
         return parkingRepository.save(parking);
     }
 
@@ -53,6 +55,9 @@ public class ParkingService {
     @Transactional
     public Parking checkOut(String id) {
         Parking parking = findById(id);
+        if (parking.getSaida() != null){
+            throw new ParkingNotFoundException(id + " CheckOut já realizado!");
+        }
         parking.setSaida(LocalDateTime.now());
         parking.setConta(ParkingCheckOut.getBill(parking));
         parkingRepository.save(parking);
