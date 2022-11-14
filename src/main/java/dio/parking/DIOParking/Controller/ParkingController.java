@@ -3,6 +3,7 @@ package dio.parking.DIOParking.Controller;
 import dio.parking.DIOParking.Model.Parking;
 import dio.parking.DIOParking.Repository.ParkingRepository;
 import dio.parking.DIOParking.Service.ParkingService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/parking")
+@Api(tags = "Parking Controller")
 public class ParkingController {
 
     @Autowired
