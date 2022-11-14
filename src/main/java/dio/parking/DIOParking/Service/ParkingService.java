@@ -21,6 +21,7 @@ public class ParkingService {
     @Transactional
     public Parking addParking(Parking parking){
         parking.setId(UUID.randomUUID().toString().split("-")[0]);
+        parking.setEntrada(LocalDateTime.now());
         return parkingRepository.save(parking);
     }
 
